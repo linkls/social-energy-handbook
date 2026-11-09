@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>社交精力管理手册 · 4 部分 11 节（本期开放 3 节正文）</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html{scroll-behavior:smooth}
+html,body{background:#F1EAE1}
+body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Source Han Sans SC",sans-serif;
+  color:#33403D;font-size:16px;line-height:1.72;-webkit-font-smoothing:antialiased}
+
+/* ---------- 布局 ---------- */
+.wrap{max-width:430px;margin:0 auto;background:#FAF7F2;min-height:100vh;box-shadow:0 0 60px rgba(80,90,84,.08)}
+@media(min-width:900px){
+  .wrap{max-width:1060px;display:flex;align-items:flex-start;background:#FAF7F2;padding:0}
+  .side{width:266px;flex:0 0 266px;position:sticky;top:0;height:100vh;overflow-y:auto;background:#F5EFE7;border-right:1px solid #EAE1D5;padding:26px 16px 40px}
+  .main{flex:1;min-width:0;padding:0 34px 70px}
+  .mobilenav{display:none}
+  .topbar{display:block !important}
+}
+.main{padding:0 20px 70px}
+.side{display:none}
+.mobilenav{display:block;position:sticky;top:0;z-index:30;background:rgba(250,247,242,.96);backdrop-filter:blur(8px);
+  border-bottom:1px solid #EFE8DF;padding:10px 0 9px}
+.mobilenav .mrow{display:flex;gap:7px;overflow-x:auto;padding:0 16px;-webkit-overflow-scrolling:touch}
+.mobilenav .mrow::-webkit-scrollbar{display:none}
+.mchip{flex:0 0 auto;white-space:nowrap;font-size:12px;font-weight:700;color:#6B7A76;border:1px solid #EAE1D5;
+  background:#fff;border-radius:999px;padding:5px 12px;text-decoration:none}
+.mchip.on{background:#4E8C84;border-color:#4E8C84;color:#fff}
+
+/* ---------- 通用 ---------- */
+.eyebrow{font-size:12px;letter-spacing:.18em;color:#9AA8A4;font-weight:600}
+.h1{font-size:28px;line-height:1.3;font-weight:800;letter-spacing:-.01em}
+.lede{color:#63736F;font-size:14.5px}
+.tag{display:inline-block;padding:4px 11px;border-radius:999px;font-size:12px;font-weight:700;background:#EAF3F0;color:#4E8C84}
+.tag.a{background:#FBEADC;color:#B46B3C}.tag.c{background:#ECE9F7;color:#6E65A8}
+.tag.d{background:#E3ECF5;color:#4B7196}
+.muted{color:#8C9A96;font-size:12.5px;line-height:1.8}
+.card{background:#fff;border-radius:22px;padding:20px 18px;box-shadow:0 6px 22px rgba(74,90,84,.07)}
+.rule{height:1px;background:#EFE8DF;margin:22px 0}
+.kicker{font-size:12px;letter-spacing:.16em;color:#9AA8A4;font-weight:700}
+
+/* ---------- 封面 ---------- */
+.cover{padding:40px 0 10px}
+.cover .h1{margin:12px 0 10px}
+.cover .lede{margin:0 0 16px}
+.cover .chips{display:flex;flex-wrap:wrap;gap:8px;margin:0}
+.chip{background:#fff;border:1px solid #EEE5DA;border-radius:999px;padding:6px 13px;font-size:12.5px;color:#5C6B67;font-weight:600}
+.topbar{display:none}
+
+/* ---------- 目录（侧栏） ---------- */
+.side .st{font-size:12px;letter-spacing:.16em;color:#9AA8A4;font-weight:700;margin:0 6px 14px}
+.side .sp{font-size:12.5px;font-weight:800;color:#33403D;margin:20px 6px 8px;display:flex;align-items:center;gap:7px}
+.side .sp .n{width:20px;height:20px;border-radius:7px;background:#EDE5DA;color:#8C9A96;font-size:11px;font-weight:800;
+  display:flex;align-items:center;justify-content:center}
+.side a{list-style:none;text-decoration:none;display:flex;align-items:center;gap:8px;font-size:13px;color:#6B7A76;
+  padding:7px 10px;border-radius:10px;line-height:1.5}
+.side a:hover{background:#EFE7DC}
+.side a .st2{flex:0 0 auto;font-size:10px;font-weight:800;color:#fff;background:#71B0A4;border-radius:5px;padding:1px 5px}
+.side a .st3{flex:0 0 auto;font-size:10px;font-weight:700;color:#B0B8B4;border:1px solid #E3DCD2;border-radius:5px;padding:1px 5px}
+.side a.open{color:#33403D;font-weight:700;background:#fff;box-shadow:0 3px 10px rgba(74,90,84,.06)}
+
+/* ---------- 8 类人格 ---------- */
+.types{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:14px}
+@media(min-width:900px){.types{grid-template-columns:repeat(4,1fr)}}
+.tcard{background:#fff;border-radius:16px;padding:13px 13px;box-shadow:0 4px 14px rgba(74,90,84,.06);border-left:3px solid #71B0A4}
+.tcard.b1{border-left-color:#E9A178}.tcard.b2{border-left-color:#8E86C4}.tcard.b3{border-left-color:#5B7FA6}.tcard.b4{border-left-color:#C9A15E}
+.tcard .tn{font-size:14px;font-weight:800;line-height:1.4}
+.tcard .td{font-size:12px;color:#8C9A96;margin-top:5px;line-height:1.65}
+
+/* ---------- 速查表 ---------- */
+.qtwrap{background:#fff;border-radius:22px;padding:16px 12px 12px;box-shadow:0 6px 22px rgba(74,90,84,.07);margin-top:14px}
+.qt{width:100%;border-collapse:collapse;table-layout:fixed}
+.qt th,.qt td{border-bottom:1px dashed #EFE8DF;padding:9px 7px;vertical-align:top;text-align:left;font-size:11.5px;line-height:1.6}
+.qt th{font-size:11.5px;color:#8C9A96;font-weight:800}
+.qt tr:last-child td{border-bottom:0}
+.qt .pn{font-weight:800;color:#33403D;font-size:12px}
+.qt .sg{color:#8C9A96}
+.qt .ans{color:#4B5C58;font-weight:600}
+.qt th:nth-child(1),.qt td:nth-child(1){width:74px}
+.qt th:nth-child(2),.qt td:nth-child(2){width:82px}
+
+/* ---------- 章节 ---------- */
+.part{margin:38px 0 0}
+.part-h{display:flex;align-items:center;gap:10px;margin-bottom:6px}
+.part-h .pn{width:30px;height:30px;border-radius:10px;background:#4E8C84;color:#fff;font-size:13px;font-weight:800;
+  display:flex;align-items:center;justify-content:center}
+.part-h .pt{font-size:18px;font-weight:800}
+.part-sub{color:#9AA8A4;font-size:12.5px;margin:0 0 16px 40px}
+.ch{background:#fff;border-radius:24px;padding:22px 18px;box-shadow:0 8px 26px rgba(74,90,84,.08);margin-bottom:16px;scroll-margin-top:64px}
+.ch .ck{font-size:11.5px;letter-spacing:.1em;color:#B0895F;font-weight:800}
+.ch .ct{font-size:21px;font-weight:800;line-height:1.4;margin:7px 0 4px}
+.ch .cs{font-size:13px;color:#9AA8A4;margin-bottom:6px}
+.blk{margin-top:18px;padding-top:16px;border-top:1px dashed #EFE8DF}
+.blk:first-of-type{border-top:0;padding-top:4px}
+.lbl{display:flex;align-items:center;gap:8px;font-size:14.5px;font-weight:800;margin-bottom:11px}
+.lbl .n{width:22px;height:22px;border-radius:8px;background:#EAF3F0;color:#4E8C84;font-size:12px;font-weight:800;
+  display:flex;align-items:center;justify-content:center;flex:0 0 auto}
+.blk p{font-size:14.5px;line-height:1.78;color:#4B5C58;margin-bottom:9px}
+.blk p:last-child{margin-bottom:0}
+.blk ul{list-style:none}
+.blk li{display:flex;gap:10px;align-items:flex-start;font-size:14.5px;line-height:1.75;color:#4B5C58;padding:5px 0}
+.blk li .d{flex:0 0 6px;width:6px;height:6px;border-radius:50%;background:#9CC4BC;margin-top:11px}
+.blk li b{color:#33403D}
+.say{display:flex;gap:12px;align-items:flex-start;background:#FAF7F2;border:1px solid #EFE7DC;border-radius:16px;padding:14px 15px;margin-bottom:10px}
+.say .sn{flex:0 0 auto;width:22px;height:22px;border-radius:8px;background:#71B0A4;color:#fff;font-size:12px;font-weight:800;
+  display:flex;align-items:center;justify-content:center;margin-top:3px}
+.say .st{flex:1}
+.say .st .sh{font-size:12px;font-weight:800;color:#B0895F;margin-bottom:4px;letter-spacing:.02em}
+.say .st .sq{font-size:15px;line-height:1.78;color:#33403D}
+.say .st .sn2{font-size:12.5px;color:#9AA8A4;margin-top:6px}
+.say.b2 .sn{background:#E9A178}.say.b3 .sn{background:#8E86C4}
+.prac{background:#EAF4F1;border-radius:18px;padding:16px 15px;margin-top:16px}
+.prac .lbl .n{background:#4E8C84;color:#fff}
+.prac li .d{background:#71B0A4}
+.prac .lbl{color:#2F5F59}
+.prac p,.prac li{color:#3B5B57}
+.next{margin-top:14px;background:#FBEADC;border-radius:16px;padding:14px 15px}
+.next .lbl .n{background:#E9A178;color:#fff}
+.next .lbl{color:#8A5A2E}
+.next p{color:#6B4B2C}
+.chfoot{display:flex;gap:10px;margin-top:16px}
+.chfoot .rbtn{flex:1;text-align:center;padding:12px;border:0;border-radius:14px;font-size:14px;font-weight:800;cursor:pointer;font-family:inherit;
+  background:#fff;border:1px solid #E9E1D6;color:#6B7A76;text-decoration:none}
+
+.tbd{background:#FBF7F0;border:1px dashed #E3DCD2;border-radius:20px;padding:20px 18px;margin-bottom:14px}
+.tbd .tt{font-size:16px;font-weight:800;color:#8C9A96}
+.tbd .td{font-size:13px;color:#A5AFA9;margin-top:7px;line-height:1.75}
+.tbd .td b{color:#7C8B87}
+
+.foot{text-align:center;color:#B0B8B4;font-size:11.5px;line-height:1.9;margin-top:34px;padding-top:20px;border-top:1px dashed #EFE8DF}
+.toast{position:fixed;left:50%;bottom:40px;transform:translateX(-50%) translateY(20px);background:rgba(40,52,49,.93);
+  color:#fff;padding:11px 20px;border-radius:14px;font-size:14px;opacity:0;pointer-events:none;transition:all .28s ease;z-index:99}
+.toast.on{opacity:1;transform:translateX(-50%) translateY(0)}
+
+/* ---------- 产品9 追加 ---------- */
+.disc{background:#F7F3EC;border-radius:16px;padding:13px 14px;margin-top:18px;font-size:12.5px;line-height:1.8;color:#7C8A86}
+.disc b{color:#54635F}
+.main p{line-height:1.9}
+.ch .blk p{line-height:1.95}
+</style>
+</head>
+<body>
+<div class="wrap">
+<aside class="side">
+<div class="st">CONTENTS</div>
+<div class="sp"><span class="n">1</span>看清自己的精力</div>
+<a href="#c1" data-t="c1"><span class="st2">本期</span>01 一周社交精力怎么花</a>
+<a href="#t2" data-t="t2"><span class="st3">框架</span>02 哪些场合让你更累</a>
+<a href="#t3" data-t="t3"><span class="st3">框架</span>03 精力是会被消耗的</a>
+<a href="#t4" data-t="t4"><span class="st3">框架</span>04 谁值得你花时间</a>
+<div class="sp"><span class="n">2</span>安排取舍</div>
+<a href="#c5" data-t="c5"><span class="st2">本期</span>05 哪些局可以推掉</a>
+<a href="#t6" data-t="t6"><span class="st3">框架</span>06 怎么推掉又不伤关系</a>
+<div class="sp"><span class="n">3</span>分配节奏</div>
+<a href="#t7" data-t="t7"><span class="st3">框架</span>07 饭局聚会的体力怎么分</a>
+<a href="#t8" data-t="t8"><span class="st3">框架</span>08 工作和社交怎么不互相偷时间</a>
+<a href="#c9" data-t="c9"><span class="st2">本期</span>09 怎么给自己充电</a>
+<div class="sp"><span class="n">4</span>长期维持</div>
+<a href="#t10" data-t="t10"><span class="st3">框架</span>10 长期节奏怎么排</a>
+<a href="#t11" data-t="t11"><span class="st3">框架</span>11 什么时候该少见人</a>
+<div class="sp"><span class="n">★</span>速查与说明</div>
+<a href="#quick" data-t="quick">场景速查表</a>
+<a href="#howto" data-t="howto">怎么用这本手册</a>
+</aside>
+  <div class="main">
+<div class="mobilenav"><div class="mrow">
+<a href="#top" class="mchip" data-c="top">封面</a>
+<a href="#quick" class="mchip" data-c="quick">速查表</a>
+<a href="#c1" class="mchip" data-c="c1">01 分配</a>
+<a href="#c5" class="mchip" data-c="c5">05 推掉</a>
+<a href="#c9" class="mchip" data-c="c9">09 充电</a>
+<a href="#howto" class="mchip" data-c="howto">怎么用</a>
+</div></div>
+    <section class="cover" id="top">
+      <div class="eyebrow">ENERGY HANDBOOK</div>
+      <h1 class="h1">社交精力管理手册</h1>
+      <p class="lede">一周精力怎么分配、哪些局可以推掉、怎么给自己充电 —— 4 部分 11 节里先给你 3 节正文。<br>先看电量，再排取舍。</p>
+      <div class="chips">
+        <span class="chip">4 部分 11 节</span>
+        <span class="chip">本期开放 3 节正文</span>
+        <span class="chip">1 张场景速查表</span>
+        <span class="chip">每节配 1 个练习</span>
+      </div>
+    </section>
+
+    <div class="card">
+      <div class="kicker">怎么用这本手册</div>
+      <p>社交这件事的难点通常不是技巧，是<b>精力有限</b>：见人、通勤、应酬都在消耗你，回来的速度赶不上花的速度。</p>
+      <p>全书共 4 部分 11 节，<b>本期开放 3 节正文</b>（01 一周社交精力怎么花 / 05 哪些局可以推掉 / 09 怎么给自己充电），其余章节目录已列出，正文待后续展开。</p>
+      <div class="rule"></div>
+      <p class="muted">每节正文固定五段：<b>场景 → 先判断什么 → 三种具体说法 → 对方继续劝说怎么回 → 今天能完成的小练习</b>。本内容是自我观察与练习工具，不构成专业心理评估、诊断或医疗建议；话术是参考句不是标准答案，请按你面对的人和场合调整。</p>
+    </div>
+
+    <section id="quick">
+      <h2>场景速查表</h2>
+      <p class="muted">来不及读整节时看这张表：认出场景 → 用一句话 → 补一个动作。</p>
+      <div class="qtwrap">
+        <table class="qt">
+          <thead><tr><th>场景</th><th>什么时候用</th><th>一句话怎么说</th><th>补一个动作</th></tr></thead>
+          <tbody>
+<tr><td class="pn">一周安排</td><td class="sg">周末一醒就被约满</td><td class="ans">这周我先留半天给自己</td><td class="sg">日历上把那段标死</td></tr>
+<tr><td class="pn">哪些场合更累</td><td class="sg">同一种饭局连着去</td><td class="ans">换个形式再来</td><td class="sg">两小时的换成半小时</td></tr>
+<tr><td class="pn">精力会被消耗</td><td class="sg">到了晚上话不想说</td><td class="ans">我先撤一下</td><td class="sg">出去站十分钟再回</td></tr>
+<tr><td class="pn">谁值得花时间</td><td class="sg">邀约多得挑不过来</td><td class="ans">看这条关系一年后还在不在</td><td class="sg">先回常联系的那几个</td></tr>
+<tr><td class="pn">哪些局能推掉</td><td class="sg">去了也插不上话</td><td class="ans">这次我就不去了</td><td class="sg">把时间挪给自己想做的事</td></tr>
+<tr><td class="pn">推掉不伤关系</td><td class="sg">对方是长期合作的人</td><td class="ans">说明原因再给个下次</td><td class="sg">给一个替代的时间</td></tr>
+<tr><td class="pn">饭局体力分配</td><td class="sg">一晚上赶两个场</td><td class="ans">我今晚认一个主场</td><td class="sg">留出路上和收尾的时间</td></tr>
+<tr><td class="pn">工作社交打架</td><td class="sg">下班后还有应酬</td><td class="ans">费脑的事我放白天</td><td class="sg">晚上只做轻活</td></tr>
+<tr><td class="pn">给自己充电</td><td class="sg">连着几天没睡够</td><td class="ans">我这两天先补睡眠</td><td class="sg">手机静音两小时</td></tr>
+<tr><td class="pn">长期节奏</td><td class="sg">忙一阵闲一阵</td><td class="ans">我按月给自己排</td><td class="sg">每月留两个晚上不社交</td></tr>
+<tr><td class="pn">什么时候少见人</td><td class="sg">不想见人的阶段</td><td class="ans">我这阵子在忙，缓过来找你</td><td class="sg">把想见的人单独留下</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <div class="part">
+      <div class="part-h"><span class="pn">1</span><span class="pt">看清自己的精力</span></div>
+      <p class="part-sub">对应场景：一周安排 · 哪些场合更累 · 精力会被消耗 · 谁值得花时间</p>
+<article class="ch" id="c1">
+<div class="ck">第 01 节 · 本期正文</div>
+<h2 class="ct">一周社交精力怎么花</h2>
+<p class="cs">社交的力气花完要靠几天休息才回得来，所以要管的是这周把它花在哪几件事上。</p>
+<div class="blk"><div class="lbl"><span class="n">1</span>场景</div>
+<p>周六中午你醒过来，手机里有三条邀约：午饭、下午茶、晚上的饭局。每一场都有人情在里面，但你的力气只够去一场。</p>
+<p>社交精力和钱不一样：钱花完还能再赚，这部分力气花完，得靠几天休息才回得来。真正要管的因此不是「去不去」，而是这周把力气放在哪几件事上。</p>
+</div>
+<div class="blk"><div class="lbl"><span class="n">2</span>先判断什么</div><ul>
+<li><span class="d"></span><span><b>这周有几件事是必须去的？</b>把邀约分成两类：有明确事要办的，和只是叫上你的。前一类优先占时间。</span></li>
+<li><span class="d"></span><span><b>这周还剩多少可用时间？</b>先算出空闲时段，再往里放邀约。反过来做，你会一直被拖着走。</span></li>
+<li><span class="d"></span><span><b>哪一个邀约让你事后更累？</b>同一种饭局连着去两次，第二次通常更耗人。累的原因不一样，耗法就不一样。</span></li>
+<li><span class="d"></span><span><b>要放弃的是哪一件？</b>先排掉一件，把空出来的那段时间换成一件你自己想做的事。</span></li>
+</ul></div>
+<div class="blk"><div class="lbl"><span class="n">3</span>三种具体说法</div>
+<div class="say b1"><div class="sn">1</div><div class="st"><div class="sh">排期式</div><div class="sq">「这周我先留半天给自己，别的约完再说。」</div><div class="sn2">适用：你想自己掌住节奏，不等别人来占你的时间。</div></div></div>
+<div class="say b2"><div class="sn">2</div><div class="st"><div class="sh">分类式</div><div class="sq">「有正事的我一定到，纯聚的这次就不排了。」</div><div class="sn2">适用：邀约多，又不想解释太多。</div></div></div>
+<div class="say b3"><div class="sn">3</div><div class="st"><div class="sh">替换式</div><div class="sq">「这周我手上的事排满了，下周三之后我约你。」</div><div class="sn2">适用：对方是长期关系，直接推容易伤感情。</div></div></div>
+</div>
+<div class="blk"><div class="lbl"><span class="n">4</span>对方继续劝说怎么回</div><ul>
+<li><span class="d"></span><span><b>「大家都去，就差你一个。」</b>→ 「我这两天在赶一个交接，下周三之后我一定到，你帮我留个位子。」</span></li>
+<li><span class="d"></span><span><b>「临时说不行太扫兴了吧。」</b>→ 「不是扫兴，是我这周真的排不开。你定个时间，我提前把别的事挪开。」</span></li>
+<li><span class="d"></span><span><b>「那你到底什么时候有空？」</b>→ 「周三晚上和周六上午，这两个时段我留着，你挑一个。」</span></li>
+</ul></div>
+<div class="blk"><div class="lbl"><span class="n">5</span>今天能完成的小练习</div><div class="prac"><ul>
+<li><span class="d"></span><span>拿张纸把这周的邀约全写下来，标上：必须去 / 可以推 / 想推。</span></li>
+<li><span class="d"></span><span>从「想推」里挑一件，回一条说明原因的话。</span></li>
+<li><span class="d"></span><span>在这周里给自己留一个整块时间，不排任何人的事。</span></li>
+</ul></div></div>
+<div class="chfoot"><a class="rbtn" href="#quick">回到场景速查表</a></div>
+</article>
+<div class="tbd" id="t2">
+<div class="tt">02 哪些场合让你更累</div>
+<div class="td">识别信号：同一类局去了两次，第二次明显更耗人<br>改法：改法：换形式——把坐两小时的换成半小时，把五个人的换成两个人的<br>记住一句：<b>累的地方不一样，耗法就不一样。</b> 本节正文待展开。</div>
+</div>
+<div class="tbd" id="t3">
+<div class="tt">03 精力是会被消耗的</div>
+<div class="td">识别信号：到了晚上就不想说话<br>改法：改法：先撤——在场的人不会怪你提前离场<br>记住一句：<b>电量见底的时候，先撤不是失礼，是自保。</b> 本节正文待展开。</div>
+</div>
+<div class="tbd" id="t4">
+<div class="tt">04 谁值得你花时间</div>
+<div class="td">识别信号：饭局邀约多到挑不过来<br>改法：改法：看一年后这条关系还在不在<br>记住一句：<b>值不值得，看的不是今天，是一年以后。</b> 本节正文待展开。</div>
+</div>
+    </div>
+
+    <div class="part">
+      <div class="part-h"><span class="pn">2</span><span class="pt">安排取舍</span></div>
+      <p class="part-sub">对应场景：哪些局能推掉 · 推掉不伤关系</p>
+<article class="ch" id="c5">
+<div class="ck">第 05 节 · 本期正文</div>
+<h2 class="ct">哪些局可以推掉</h2>
+<p class="cs">推掉一个局不叫逃避，叫把时间还给更值得的地方。难的不是决定推，是怎么推得让人不介意。</p>
+<div class="blk"><div class="lbl"><span class="n">1</span>场景</div>
+<p>你收到一个邀约，时间在晚上八点，跨半个城，去了大概率是坐两小时听人聊天，你插不上几句话。</p>
+<p>同一场局，有人觉得是放松，对你是纯消耗。判断它值不值，不要看别人怎么说，要看自己第二天是松了还是更沉。</p>
+</div>
+<div class="blk"><div class="lbl"><span class="n">2</span>先判断什么</div><ul>
+<li><span class="d"></span><span><b>去了之后你会聊到什么？</b>如果整晚你插不上三句话，这场局对你的价值就很薄。</span></li>
+<li><span class="d"></span><span><b>这局是有人在攒人，还是有人真的想见你？</b>被攒起来的局和被专门邀请的局，消耗差很多。</span></li>
+<li><span class="d"></span><span><b>推掉之后对方会怎么想？</b>带原因、带替代时间的推，和只回一句「不去」，观感差很远。</span></li>
+<li><span class="d"></span><span><b>有没有更省的替代？</b>同样的人，可以改成喝杯咖啡、线上聊十分钟，关系照样维护。</span></li>
+</ul></div>
+<div class="blk"><div class="lbl"><span class="n">3</span>三种具体说法</div>
+<div class="say b1"><div class="sn">1</div><div class="st"><div class="sh">原因式</div><div class="sq">「那天我有个事要收尾，就不去了，下次我请。」</div><div class="sn2">适用：对方和你还不熟，给个理由就够。</div></div></div>
+<div class="say b2"><div class="sn">2</div><div class="st"><div class="sh">替代式</div><div class="sq">「晚上我过不去，要不改成周末下午喝杯咖啡？」</div><div class="sn2">适用：你想维护关系，只是不想待那么久。</div></div></div>
+<div class="say b3"><div class="sn">3</div><div class="st"><div class="sh">换形式式</div><div class="sq">「那天的场合我不太习惯，咱们换个地方坐坐。」</div><div class="sn2">适用：局本身让你不舒服，问题不在人。</div></div></div>
+</div>
+<div class="blk"><div class="lbl"><span class="n">4</span>对方继续劝说怎么回</div><ul>
+<li><span class="d"></span><span><b>「就当来坐坐，又不一定要聊什么。」</b>→ 「今天确实走不开。下次我早点到，多陪你待一会儿。」</span></li>
+<li><span class="d"></span><span><b>「你是不是这阵子在躲我们？」</b>→ 「不是躲你，是这段时间我自己有点满了。缓过来我先叫你。」</span></li>
+<li><span class="d"></span><span><b>「行，那下次必须来啊。」</b>→ 「下次我记着，周三晚上给你留时间。」</span></li>
+</ul></div>
+<div class="blk"><div class="lbl"><span class="n">5</span>今天能完成的小练习</div><div class="prac"><ul>
+<li><span class="d"></span><span>回想这半年参加过的局，给每个局标一句：值得 / 可替 / 不必要。</span></li>
+<li><span class="d"></span><span>从「不必要」里挑一个，发出一次带替代时间的推掉。</span></li>
+<li><span class="d"></span><span>观察对方的反应：多数人只回一句「没事」，关系并没有受影响。</span></li>
+</ul></div></div>
+<div class="chfoot"><a class="rbtn" href="#quick">回到场景速查表</a></div>
+</article>
+<div class="tbd" id="t6">
+<div class="tt">06 怎么推掉又不伤关系</div>
+<div class="td">识别信号：想推但怕对方介意<br>改法：改法：原因加替代时间，两样一起给<br>记住一句：<b>推掉一个局，不等于推掉一个人。</b> 本节正文待展开。</div>
+</div>
+    </div>
+
+    <div class="part">
+      <div class="part-h"><span class="pn">3</span><span class="pt">分配节奏</span></div>
+      <p class="part-sub">对应场景：饭局体力分配 · 工作社交打架 · 给自己充电</p>
+<div class="tbd" id="t7">
+<div class="tt">07 饭局聚会的体力怎么分</div>
+<div class="td">识别信号：一晚上赶两个场，第二场只能坐着发呆<br>改法：改法：提前认一个主场，另一个改成线上或者干脆不去<br>记住一句：<b>体力有限，就别平均分配。</b> 本节正文待展开。</div>
+</div>
+<div class="tbd" id="t8">
+<div class="tt">08 工作和社交怎么不互相偷时间</div>
+<div class="td">识别信号：工作日和应酬撞在一起，两头都做不好<br>改法：改法：费脑的事放白天，社交放晚上<br>记住一句：<b>两头抢时间，到头来是两边都出不了活。</b> 本节正文待展开。</div>
+</div>
+<article class="ch" id="c9">
+<div class="ck">第 09 节 · 本期正文</div>
+<h2 class="ct">怎么给自己充电</h2>
+<p class="cs">充电不是奖励，是维持。精力见底的时候，人会变得没耐心、易怒、不想接话。</p>
+<div class="blk"><div class="lbl"><span class="n">1</span>场景</div>
+<p>连着开了几天会，晚上回家一句话都不想讲，躺到半夜还在想白天那场没说完的话。</p>
+<p>人的社交精力像手机电量：见人、通勤、开会都在掉电。掉到某个点，你会先变得不耐烦，再变得不想出门，到头来连回消息都嫌累。</p>
+</div>
+<div class="blk"><div class="lbl"><span class="n">2</span>先判断什么</div><ul>
+<li><span class="d"></span><span><b>你现在是电量低，还是心里有事？</b>低电量的表现是懒得说话、对小事没耐心；有事的表现是心里有个具体的疙瘩。两种得分开处理。</span></li>
+<li><span class="d"></span><span><b>你要补的是睡眠还是独处？</b>睡够了还是累，多半是缺独处；睡不够，补觉比什么方法都管用。</span></li>
+<li><span class="d"></span><span><b>这周有没有给自己留过整块时间？</b>半小时的散步不算，留出一个下午才算。</span></li>
+<li><span class="d"></span><span><b>你的充电方式需要别人陪吗？</b>有人陪着充电仍然算社交，那是另一种消耗。</span></li>
+</ul></div>
+<div class="blk"><div class="lbl"><span class="n">3</span>三种具体说法</div>
+<div class="say b1"><div class="sn">1</div><div class="st"><div class="sh">报备式</div><div class="sq">「这几天我想安静一下，不是针对谁。周五我缓过来找你。」</div><div class="sn2">适用：你怕别人误会，需要先把话说清楚。</div></div></div>
+<div class="say b2"><div class="sn">2</div><div class="st"><div class="sh">换挡式</div><div class="sq">「今天这个局我改个形式，不去现场，线上聊十分钟。」</div><div class="sn2">适用：关系要维护，但你的电量只够十分钟。</div></div></div>
+<div class="say b3"><div class="sn">3</div><div class="st"><div class="sh">自留式</div><div class="sq">「这周六我不安排了，给自己留一天。」</div><div class="sn2">适用：你已经很久没有整块属于自己的时间。</div></div></div>
+</div>
+<div class="blk"><div class="lbl"><span class="n">4</span>对方继续劝说怎么回</div><ul>
+<li><span class="d"></span><span><b>「你这阵子怎么都不出来？」</b>→ 「这阵子在调整节奏，不是不想见你，给我几天我就缓过来了。」</span></li>
+<li><span class="d"></span><span><b>「你是不是心情不好？」</b>→ 「不是不好，就是满了。我需要睡两个好觉，然后我们照常。」</span></li>
+<li><span class="d"></span><span><b>「大家都需要你，你得撑住。」</b>→ 「我先照顾好自己，才能真的帮得上。这周我把要紧的事做完就行。」</span></li>
+</ul></div>
+<div class="blk"><div class="lbl"><span class="n">5</span>今天能完成的小练习</div><div class="prac"><ul>
+<li><span class="d"></span><span>这周挑一个晚上，把手机放远一点，什么都不安排。</span></li>
+<li><span class="d"></span><span>写三行：什么让我掉电、什么给我充电、这周少排哪一件。</span></li>
+<li><span class="d"></span><span>睡够之后，再决定要不要回那些邀约。</span></li>
+</ul></div></div>
+<div class="chfoot"><a class="rbtn" href="#quick">回到场景速查表</a></div>
+</article>
+    </div>
+
+    <div class="part">
+      <div class="part-h"><span class="pn">4</span><span class="pt">长期维持</span></div>
+      <p class="part-sub">对应场景：长期节奏 · 什么时候少见人</p>
+<div class="tbd" id="t10">
+<div class="tt">10 长期节奏怎么排</div>
+<div class="td">识别信号：忙一阵闲一阵，闲下来反而更累<br>改法：改法：按月排——每月留两个晚上不社交<br>记住一句：<b>节奏比强度更能改人。</b> 本节正文待展开。</div>
+</div>
+<div class="tbd" id="t11">
+<div class="tt">11 什么时候该少见人</div>
+<div class="td">识别信号：见到人就烦，宁愿自己待着<br>改法：改法：就说这阵子在忙，把想见的人单独留下<br>记住一句：<b>少见人不是逃避，是给自己留白。</b> 本节正文待展开。</div>
+</div>
+    </div>
+
+    <section id="howto">
+      <div class="card">
+        <div class="kicker">交付与使用说明</div>
+        <p>这是一份单文件网页资料，拍下后自动发货一条链接，手机浏览器打开就能用，同一条链接可以反复使用。</p>
+        <p class="muted">整个页面是单个网页文件，提前存在手机里断网也能看；手机上先存好，下次直接点开。本内容是自我观察与练习工具，不构成专业心理评估、诊断或医疗建议。</p>
+      </div>
+      <div class="disc"><b>售后说明</b><br>虚拟资料，付款后不支持退款。页面打不开或显示异常，可在订单里联系售后处理。</div>
+    </section>
+
+    <div class="foot">
+      社交精力管理手册 · 4 部分 11 节，本期开放 3 节正文<br>
+      单文件网页，手机打开即用，断网也能看
+    </div>
+  </div>
+</div>
+<script>
+(function(){
+  var links=[].slice.call(document.querySelectorAll('.side a'));
+  var chips=[].slice.call(document.querySelectorAll('.mchip'));
+  function go(e){
+    var href=this.getAttribute('href');
+    if(!href||href.charAt(0)!=='#') return;
+    var el=document.querySelector(href);
+    if(!el) return;
+    e.preventDefault();
+    var top=el.getBoundingClientRect().top+window.pageYOffset-64;
+    window.scrollTo({top:top,behavior:'smooth'});
+  }
+  links.forEach(function(a){a.addEventListener('click',go);});
+  chips.forEach(function(a){a.addEventListener('click',go);});
+
+  var ids=links.map(function(a){return a.getAttribute('data-t');});
+  function highlight(){
+    var y=window.pageYOffset+90, cur='';
+    ids.forEach(function(id){
+      var el=document.getElementById(id);
+      if(el&&el.getBoundingClientRect().top+window.pageYOffset<=y) cur=id;
+    });
+    links.forEach(function(a){
+      a.classList.toggle('open',a.getAttribute('data-t')===cur);
+    });
+    chips.forEach(function(a){
+      a.classList.toggle('on',a.getAttribute('data-c')===cur);
+    });
+  }
+  var t=null;
+  window.addEventListener('scroll',function(){if(t)return;t=setTimeout(function(){t=null;highlight();},80);});
+  highlight();
+})();
+</script>
+</body>
+</html>
